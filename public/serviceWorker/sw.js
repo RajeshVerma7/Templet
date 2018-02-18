@@ -9,9 +9,9 @@ self.addEventListener('install', function (event) {
         cache.addAll([
           '/',
           '/index.html',
-          '/javascript/*',
-          '/stylesheet/css/*',
-          '/images/*'
+          '/javascript',
+          '/stylesheet/css',
+          '/images'
         ]);
       })
   );
