@@ -3,16 +3,16 @@ self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open('static')
       .then(function (cache) {
-        // cache.add('/');
+        cache.add('/');
         // cache.add('/index.html');
         // cache.add('/src/js/app.js');
-        cache.addAll([
-          '/',
-          '/index.html',
-          '/javascript',
-          '/stylesheet/css',
-          '/images'
-        ]);
+        // cache.addAll([
+        //   '/',
+        //   '/index.html',
+        //   '/javascript',
+        //   '/stylesheet/css',
+        //   '/images'
+        // ]);
       })
   );
 });
