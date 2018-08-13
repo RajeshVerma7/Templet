@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var scrapCss = require('../controller/scrapCss/withPuppeter');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Cool, huh!'});
@@ -9,7 +11,9 @@ router.get('/', function(req, res, next) {
 /* GET users listing. */
 router.get('/users', function(req, res, next) {
   if(req.query.webRes){
-    res.send('users pages is okay... '+req.query.webRes);
+    scrapCss.scrap(req.query.webRes).then((result)=>{
+      res.send(result);
+    });
   }
 });
 
