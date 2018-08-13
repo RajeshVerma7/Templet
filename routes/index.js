@@ -7,8 +7,8 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET users listing. */
-router.post('/users', function(req, res, next) {
-  res.send('users pages is okay... ' + req);
+router.get('/users', function(req, res, next) {
+  res.send('users pages is okay... ');
 });
 
 module.exports = router;
