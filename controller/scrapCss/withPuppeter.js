@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 
+console.log(puppeteer);
 var scrap = async (url) => {
     if (url && typeof url === 'string' && url.length){
         
