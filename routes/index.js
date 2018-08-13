@@ -13,6 +13,8 @@ router.get('/users', function(req, res, next) {
   if(req.query.webRes){
     scrapCss.scrap(decodeURI(req.query.webRes)).then((result)=>{
       res.send(result);
+    }).catch((err)=>{
+      res.send(err)
     });
   }
 });
