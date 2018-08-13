@@ -8,7 +8,9 @@ router.get('/', function(req, res, next) {
 
 /* GET users listing. */
 router.get('/users', function(req, res, next) {
-  res.send('users pages is okay... '+req.query);
+  if(req.query.webRes){
+    res.send('users pages is okay... '+req.query.webRes);
+  }
 });
 
 module.exports = router;
