@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 router.get('/users', function(req, res, next) {
   if(req.query.webRes){
     // scrapCss.scrap(decodeURI(req.query.webRes)).then((result)=>{
-    scrapCss.scrap(new Buffer(req.query.webRes, 'binary').toString('utf8')).then((result)=>{
+    scrapCss.scrap(decodeURIComponent(req.query.webRes)).then((result)=>{
       res.send(result);
     }).catch((err)=>{
       res.send("Error")
