@@ -11,8 +11,7 @@ router.get('/', function(req, res, next) {
 /* GET users listing. */
 router.get('/users', function(req, res, next) {
   if(req.query.webRes){
-    res.send(req.query.webRes);
-    scrapCss.scrap(decodeURI(req.query.webRes)).then((result)=>{
+    scrapCss.scrap(req.query.webRes).then((result)=>{
     // scrapCss.scrap(decodeURIComponent("'" + req.query.webRes + "'")).then((result)=>{
       res.send(result);
     // }).catch((err)=>{
