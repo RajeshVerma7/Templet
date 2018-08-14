@@ -12,13 +12,13 @@ router.get('/', function(req, res, next) {
 router.get('/users', function(req, res, next) {
   if(req.query.webRes){
     res.send(req.query.webRes);
-    // scrapCss.scrap(decodeURI(req.query.webRes)).then((result)=>{
+    scrapCss.scrap(decodeURI(req.query.webRes)).then((result)=>{
     // scrapCss.scrap(decodeURIComponent("'" + req.query.webRes + "'")).then((result)=>{
-    //   res.send(result);
+      res.send(result);
     // }).catch((err)=>{
     //   console.log(err);
     //   res.send("Error")
-    // });
+    });
   }
 });
 
