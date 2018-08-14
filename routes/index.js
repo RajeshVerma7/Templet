@@ -13,8 +13,10 @@ router.get('/', function(req, res, next) {
 router.get('/users', function(req, res, next) {
   if(req.query.webRes){
     scrapCss.scrap(req.query.webRes).then((result)=>{
+      console.log(result);
       res.send(result);
     }).catch((err)=>{
+      console.log(err);
       res.send("Error")
     });
   }
