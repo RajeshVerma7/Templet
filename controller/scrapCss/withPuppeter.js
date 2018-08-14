@@ -4,7 +4,8 @@ console.log(puppeteer);
 var scrap = async (url) => {
     if (url && typeof url === 'string' && url.length){
         
-        const browser = await puppeteer.launch();
+        // const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
         const page = await browser.newPage();
         var scrapedContent = '';
         page.on('response', async resp => {
