@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var scrapCss = require('../controller/scrapCss/withPuppeter');
+// var scrapCss = require('../controller/scrapCss/withPuppeter');
+var scrapCss = require('../controller/scrapCss/withXHR');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -12,11 +13,8 @@ router.get('/', function(req, res, next) {
 router.get('/users', function(req, res, next) {
   if(req.query.webRes){
     scrapCss.scrap(req.query.webRes).then((result)=>{
-    // scrapCss.scrap(decodeURIComponent("'" + req.query.webRes + "'")).then((result)=>{
-      console.log(err);
       res.send(result);
     }).catch((err)=>{
-      console.log(err);
       res.send("Error")
     });
   }
