@@ -3,6 +3,7 @@ var router = express.Router();
 
 // var scrapCss = require('../controller/scrapCss/withPuppeter');
 var scrapCss = require('../controller/scrapCss/withXHR');
+var modifyCss = require('../controller/replaceInternalCssLinks/replaceCssLink');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -13,8 +14,9 @@ router.get('/', function(req, res, next) {
 router.get('/users', function(req, res, next) {
   if(req.query.webRes){
     scrapCss.scrap(req.query.webRes).then((result)=>{
-      console.log(result);
-      res.send(result);
+      // console.log(result);
+      var modifiedCss = modifyCss.modify(result , req.query.webRes);
+      res.send(modifiedCss);
     }).catch((err)=>{
       console.log(err);
       res.send("Error")
