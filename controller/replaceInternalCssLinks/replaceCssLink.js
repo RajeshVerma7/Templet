@@ -59,8 +59,8 @@ var modify = function (cssContent, cssLink) {
                 }
             }
         });
-        return content;
     }
+    return content;
 }
 
 module.exports = {
