@@ -5,9 +5,9 @@ function checkModification(cssContent) {
         var sIndex, eIndex;
         if (s) {
             sIndex = s;
-            sIndex = _cssContent.indexOf('url(\'', sIndex);
+            sIndex = _cssContent.indexOf('url(', sIndex);
         } else {
-            sIndex = _cssContent.indexOf('url(\'');
+            sIndex = _cssContent.indexOf('url(');
         }
         if (sIndex > 0) {
             eIndex = _cssContent.indexOf(')', sIndex);
@@ -49,7 +49,7 @@ var modify = function (cssContent, cssLink) {
         arrayIndex.forEach((e, i) => {
             var urlSrc = cssContent.substr(e.s, (e.e - e.s));
             var beReplace = urlSrc;
-            if (urlSrc.substr(0, 5) === "url('" && urlSrc.substr(urlSrc.length - 2) === "')") {
+            if (urlSrc.substr(0, 4) === "url(" && urlSrc.substr(urlSrc.length - 1) === ")") {
                 var toReplace = urlSrc.substr(5, (urlSrc.length - 2 - 5));
                 if (toReplace.substr(0, 3) === "../") {
                     var change = linkToReplace(cssLink, 2);
