@@ -50,7 +50,11 @@ var modify = function (cssContent, cssLink) {
             var urlSrc = cssContent.substr(e.s, (e.e - e.s));
             var beReplace = urlSrc;
             if (urlSrc.substr(0, 4) === "url(" && urlSrc.substr(urlSrc.length - 1) === ")") {
-                var toReplace = urlSrc.substr(5, (urlSrc.length - 2 - 5));
+                if(urlSrc.substr(4, 1) === "'" || urlSrc.substr(4, 1) === '"'){
+                    var toReplace = urlSrc.substr(5, (urlSrc.length - 2 - 5));
+                }else if(urlSrc.substr(4, 1) === ".") {
+                    var toReplace = urlSrc.substr(4, (urlSrc.length - 2 - 3));
+                }
                 if (toReplace.substr(0, 3) === "../") {
                     var change = linkToReplace(cssLink, 2);
                     var newBeReplace = beReplace;
