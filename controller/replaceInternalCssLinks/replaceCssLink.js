@@ -55,7 +55,7 @@ var modify = function (cssContent, cssLink) {
                 }else if(urlSrc.substr(4, 1) === ".") {
                     var toReplace = urlSrc.substr(4, (urlSrc.length - 2 - 3));
                 }
-                if (toReplace.substr(0, 3) === "../") {
+                if (toReplace && toReplace.length > 0 && toReplace.substr(0, 3) === "../") {
                     var change = linkToReplace(cssLink, 2);
                     var newBeReplace = beReplace;
                     var replacedTxt = newBeReplace.replace("..", change);
